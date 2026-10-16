@@ -1,0 +1,46 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:false" }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_monster_leather_special_a": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tensura:monster_leather_special_a"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:string"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tensura:pouch_special_a"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_string",
+      "has_monster_leather_special_a"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tensura:pouch_special_a"
+    ]
+  }
+}

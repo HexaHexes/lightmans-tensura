@@ -1,0 +1,35 @@
+{
+  "parent": "tensura:my_precious",
+  "criteria": {
+    "coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lightmanscurrency:coin_emerald"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "tensura.advancements.million_dollar.description"
+    },
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "lightmanscurrency:coin_emerald"
+    },
+    "title": {
+      "translate": "tensura.advancements.million_dollar.title"
+    }
+  },
+  "requirements": [
+    [
+      "coin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

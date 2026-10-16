@@ -1,0 +1,24 @@
+{
+  "values": [
+    "#tensura:hihiirokane_items",
+    "tensura:shadow_storage",
+    "tensura:marionette_heart",
+    "tensura:daemon_essence",
+    "tensura:dragon_essence",
+    "tensura:elemental_essence",
+    "tensura:zane_blood",
+    "tensura:pouch_special_a",
+    "tensura:moonlight",
+    "tensura:ruhk",
+    "tensura:orb_of_domination",
+    "lightmanscurrency:wallet_leather",
+    "lightmanscurrency:wallet_copper",
+    "lightmanscurrency:wallet_iron",
+    "lightmanscurrency:wallet_gold",
+    "lightmanscurrency:wallet_emerald",
+    "lightmanscurrency:wallet_diamond",
+    "lightmanscurrency:wallet_netherite",
+    "lightmanscurrency:wallet_nether_star",
+    "lightmanscurrency:wallet_ender_dragon"
+  ]
+}

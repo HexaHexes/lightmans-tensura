@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:false" }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "pouches",
+  "key": {
+    "L": {
+      "item": "tensura:monster_leather_special_a"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " S ",
+    "L L",
+    " L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tensura:pouch_special_a"
+  }
+}

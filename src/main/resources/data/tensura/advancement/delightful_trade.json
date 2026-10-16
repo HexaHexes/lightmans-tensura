@@ -1,0 +1,31 @@
+{
+  "parent": "tensura:reincarnated",
+  "criteria": {
+    "trade": {
+      "conditions": {
+        "item": {
+          "items": "#tensura:coins"
+        }
+      },
+      "trigger": "tensura:trade"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "tensura.advancements.delightful_trade.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "lightmanscurrency:coin_copper"
+    },
+    "title": {
+      "translate": "tensura.advancements.delightful_trade.title"
+    }
+  },
+  "requirements": [
+    [
+      "trade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "tensura:delightful_trade",
+  "criteria": {
+    "coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lightmanscurrency:coin_gold"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "tensura.advancements.my_precious.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "lightmanscurrency:coin_gold"
+    },
+    "title": {
+      "translate": "tensura.advancements.my_precious.title"
+    }
+  },
+  "requirements": [
+    [
+      "coin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

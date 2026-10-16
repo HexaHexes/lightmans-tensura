@@ -1,0 +1,19 @@
+{
+    "currency.tensura_all_the_adventure.bronze":  "Copper Coins",
+    "currency.tensura_all_the_adventure.silver":  "Iron Coins",
+    "currency.tensura_all_the_adventure.stellar_gold":  "Emerald Coins",
+    "currency.tensura_all_the_adventure.bronze.singular":  "Copper Coin",
+    "currency.tensura_all_the_adventure.bronze.plural":  "Copper Coins",
+    "currency.tensura_all_the_adventure.silver.singular":  "Iron Coin",
+    "currency.tensura_all_the_adventure.silver.plural":  "Iron Coins",
+    "currency.tensura_all_the_adventure.stellar_gold.singular":  "Emerald Coin",
+    "currency.tensura_all_the_adventure.stellar_gold.plural":  "Emerald Coins",
+    "screen.tensura_all_the_adventure.guild.legacy.respec_tooltip":  "Refund all %s allocated Legacy Points. Cost: %s experience levels and %s Emerald Coins.",
+    "message.tensura_all_the_adventure.legacy.respec_unavailable":  "Legacy respec is unavailable because Emerald Coins are not registered.",
+    "message.tensura_all_the_adventure.legacy.respec_coins":  "Legacy respec requires %s Emerald Coins; you currently have %s.",
+    "message.tensura_all_the_adventure.legacy.respec_complete":  "Refunded %s allocated Legacy Points for %s experience levels and %s Emerald Coins.",
+    "screen.tensura_all_the_adventure.journal.respec_cost":  "Returns allocated LP for %s Minecraft levels and %s Emerald Coins.",
+    "screen.tensura_all_the_adventure.journal.respec_warning":  "Return all allocated LP for %s Minecraft levels and %s Emerald Coins. Permanent earned points are kept.",
+    "screen.tensura_all_the_adventure.journal.guide.market.coins":  "100 Copper = 1 Iron. 100 Iron = 1 Gold. 100 Gold = 1 Emerald. Contract rewards can include these coins.",
+    "screen.tensura_all_the_adventure.journal.guide.legacy.respec":  "Respec returns all allocated LP for %s Minecraft levels and %s Emerald Coins. Earned points are kept so you can allocate them again."
+}

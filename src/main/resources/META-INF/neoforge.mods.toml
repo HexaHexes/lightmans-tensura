@@ -1,0 +1,78 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "lightmans_tensura"
+version = "1.0.0"
+displayName = "Lightman's Tensura Economy"
+authors = "kurok"
+description = '''
+Replaces Tensura's coin and pouch economy with Lightman's Currency:
+- Tensura merchants now trade in Lightman's coins (copper/iron/gold/emerald),
+  keeping the 100:1 exchange ladder (including the coin-exchange trades).
+- Tensura coin pouches are superseded by Lightman's wallets, which evolve
+  tier-to-tier through Gear Evolution.
+- Bundled datapack retires the old pouches: recipes removed, loot tables and
+  advancements updated, the tensura:coins tag now contains Lightman's coins,
+  and wallet gear-existence chains are added.
+- Existing coins/pouches in inventories and world containers are converted
+  automatically on login/chunk load; /coinconvert sweeps on demand.
+- Optional Tensura: All The Adventure integration pays contract and market
+  rewards in Lightman's coins when that mod is installed.
+'''
+
+[[mixins]]
+config = "lightmans_tensura.mixins.json"
+
+[[mixins]]
+config = "lightmans_tensura_tata.mixins.json"
+
+[[dependencies.lightmans_tensura]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "tensura"
+type = "required"
+versionRange = "[2.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "manascore"
+type = "required"
+versionRange = "[4.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "lightmanscurrency"
+type = "required"
+versionRange = "[1.21-2.3.0.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "gearevolution"
+type = "required"
+versionRange = "[1.3,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.lightmans_tensura]]
+modId = "tensura_all_the_adventure"
+type = "optional"
+versionRange = "[0.0,)"
+ordering = "AFTER"
+side = "BOTH"
