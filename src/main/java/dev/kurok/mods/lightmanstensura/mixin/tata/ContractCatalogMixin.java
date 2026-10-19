@@ -24,7 +24,7 @@ public abstract class ContractCatalogMixin {
                     value = "INVOKE",
                     target = "Lcom/low/tensuraalltheadventure/contract/ContractCatalog;delivery(Ljava/lang/String;Ljava/lang/String;IJJILcom/low/tensuraalltheadventure/data/AdventureRank;)Lcom/low/tensuraalltheadventure/contract/ContractDefinition;"),
             index = 1)
-    private String lightmansTensura$swapDeliveryItem(String itemId) {
+    private static String lightmansTensura$swapDeliveryItem(String itemId) {
         return CoinMap.mapId(itemId);
     }
 }
