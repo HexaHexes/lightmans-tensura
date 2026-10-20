@@ -1,4 +1,4 @@
-﻿# Agent rules and conventions â€” Lightman's Tensura Economy
+# Agent rules and conventions â€” Lightman's Tensura Economy
 
 **Repo:** `HexaHexes/lightmans-tensura` Â· **Mod ID:** `lightmans_tensura` Â· **Branch:** `master`
 **Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 Â· **Jar:** `build/libs/lightmans-tensura-<version>.jar`
