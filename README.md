@@ -14,9 +14,10 @@ have Tensura coins or pouches in a world, they convert to the new currency autom
   with `/coinconvert`. Pouch contents move straight into the matching wallet.
 - **Villager trades pay the new currency.** Villager offers are converted too, so
   trading works exactly as before — just with the new coins.
-- **Wallets progress as you grow.** Wallets slot into **Gear Evolution**'s upgrade
-  ladder, so a better wallet is a real tier you work up to (leather through netherite,
-  ending at the ender-dragon wallet).
+- **Wallets progress as you grow.** With **Gear Evolution** installed, wallets slot
+  into its upgrade ladder, so a better wallet is a real tier you work up to (leather
+  through netherite, ending at the ender-dragon wallet). Without it, wallets still
+  work — they just don't evolve.
 - **Quest and market rewards pay Lightman's coins** when Tensura: All The Adventure is
   installed.
 
@@ -36,7 +37,7 @@ already did. To convert old money at any time, run:
 | | Mod | Why |
 |---|---|---|
 | **Required** | [Lightman's Currency](https://www.curseforge.com/minecraft/mc-mods/lightmans-currency) | The coins and wallets |
-| **Required** | [Gear Evolution](https://www.curseforge.com/minecraft/mc-mods/gear-evolution) | Wallet upgrade ladder |
+| Optional | [Gear Evolution](https://www.curseforge.com/minecraft/mc-mods/gear-evolution) | Wallet upgrade ladder |
 | **Required** | Tensura: Reincarnated | The currency being replaced |
 | **Required** | ManasCore | Tensura's core library |
 | Optional | Tensura: All The Adventure | Quest/contract/market rewards pay Lightman's coins |

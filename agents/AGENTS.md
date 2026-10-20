@@ -7,10 +7,12 @@ Replaces Tensura's coins/pouches with Lightman's Currency coins/wallets as one m
 a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 
 **Dependencies**
-- Required: Lightman's Currency (`lightmanscurrency`), Gear Evolution (`gearevolution`),
-  Tensura (`tensura`), ManasCore (`manascore`).
-- Optional: Tensura: All The Adventure (`tensura_all_the_adventure`) — enables its
-  quest/contract/market rewards paying Lightman's coins (gated mixins).
+- Required: Lightman's Currency (`lightmanscurrency`), Tensura (`tensura`),
+  ManasCore (`manascore`).
+- Optional: Gear Evolution (`gearevolution`) — registers the wallet upgrade ladder via
+  `addon_chains/`; without it wallets still work but do not evolve. Tensura: All The
+  Adventure (`tensura_all_the_adventure`) — enables its quest/contract/market rewards
+  paying Lightman's coins (gated mixins).
 
 **Test:** `./gradlew runGametest` — `EconomyGameTests` (14 tests). `expectedTests = 14`.
 
