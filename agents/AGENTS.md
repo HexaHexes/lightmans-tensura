@@ -1,7 +1,7 @@
-# Agent rules and conventions â€” Lightman's Tensura Economy
+# Agent rules and conventions — Lightman's Tensura Economy
 
-**Repo:** `HexaHexes/lightmans-tensura` Â· **Mod ID:** `lightmans_tensura` Â· **Branch:** `master`
-**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 Â· **Jar:** `build/libs/lightmans-tensura-<version>.jar`
+**Repo:** `HexaHexes/lightmans-tensura` · **Mod ID:** `lightmans_tensura` · **Branch:** `master`
+**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 · **Jar:** `build/libs/lightmans-tensura-<version>.jar`
 
 Replaces Tensura's coins/pouches with Lightman's Currency coins/wallets as one mod +
 a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
@@ -9,19 +9,19 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 **Dependencies**
 - Required: Lightman's Currency (`lightmanscurrency`), Gear Evolution (`gearevolution`),
   Tensura (`tensura`), ManasCore (`manascore`).
-- Optional: Tensura: All The Adventure (`tensura_all_the_adventure`) â€” enables its
+- Optional: Tensura: All The Adventure (`tensura_all_the_adventure`) — enables its
   quest/contract/market rewards paying Lightman's coins (gated mixins).
 
-**Test:** `./gradlew runGametest` â€” `EconomyGameTests` (14 tests). `expectedTests = 14`.
+**Test:** `./gradlew runGametest` — `EconomyGameTests` (14 tests). `expectedTests = 14`.
 
 **Gotchas**
 - The `tensura:coins` tag is overridden with `replace: true`; pouch recipes are disabled
   via `neoforge:false` conditions.
 - `/coinconvert` runs at permission level 2 and converts stacks 1:1 by tier.
 - Nine wallet tiers are registered to Gear Evolution via
-  `data/lightmans_tensura/addon_chains/` (minEP ladder 0 â†’ 80000).
+  `data/lightmans_tensura/addon_chains/` (minEP ladder 0 → 80000).
 - The migration converts currency on chunk/entity load, player login, and via
-  `/coinconvert` â€” keep all four surfaces in sync when touching conversion.
+  `/coinconvert` — keep all four surfaces in sync when touching conversion.
 
 ---
 
@@ -29,8 +29,8 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 
 Before starting any new development in this repo:
 
-1. `git status` â€” confirm what uncommitted work exists. Never disturb or sweep it.
-2. `git pull --ff-only` â€” sync with the remote. A fast-forward is the normal case,
+1. `git status` — confirm what uncommitted work exists. Never disturb or sweep it.
+2. `git pull --ff-only` — sync with the remote. A fast-forward is the normal case,
    because we push straight to the shared branch.
 3. If the pull would **not** fast-forward (the branch has diverged), or if it would
    collide with local uncommitted work, **stop and ask** rather than merging, rebasing
@@ -39,17 +39,19 @@ Before starting any new development in this repo:
 ## Scope doctrine
 
 - **One mod + bundled datapack.** No KubeJS scripts.
-- **Data-driven over code** â€” prefer JSON/datapack content to Java when both work.
+- **Data-driven over code** — prefer JSON/datapack content to Java when both work.
 - **Public API only, no mixins** in the colony-gear-style addon mods. Sanctioned
   exception: `ds-tensura-fix` (tensura-dragon-skin-rebalance), a mixin fix mod by design.
 
 ## Verification
 
-- The in-repo GameTest run is the **only** CI gate. Never verify against a live
+- Verify with the in-repo GameTest run (`./gradlew runGametest`, or `runGameTestServer`).
+  Repos without GameTests verify with `./gradlew build`. Never verify against a live
   CurseForge instance.
 - Keep `expectedTests` in `build.gradle` in sync with the `@GameTest` methods.
 - **Client-render features cannot be proven headless.** The honest scope is
-  "build green + the user's in-game check" â€” say so rather than overclaiming.
+  "build green + the user's in-game check" - say so rather than overclaiming.
+
 
 ## Build environment
 
@@ -62,16 +64,16 @@ Before starting any new development in this repo:
 
 ## PowerShell quirks (this org is developed on Windows)
 
-- A `git push` "error" in PowerShell is usually stderr passthrough â€” success is the
+- A `git push` "error" in PowerShell is usually stderr passthrough — success is the
   `hash..hash  branch -> branch` line, not the absence of red text.
-- `New-Object Type(args)` breaks on arithmetic â€” use `::new()` or a parenthesized
+- `New-Object Type(args)` breaks on arithmetic — use `::new()` or a parenthesized
   argument.
 
 ## Git & release
 
 - Remote is SSH: `git@github.com:HexaHexes/<name>.git`.
 - Push only after tests are green **and** the user has given the go.
-- Never sweep the user's uncommitted work into a commit â€” commit only what is intended.
+- Never sweep the user's uncommitted work into a commit — commit only what is intended.
 - Commit subjects: concise, imperative.
 
 ## House style
@@ -85,15 +87,21 @@ Before starting any new development in this repo:
 
 ## CI & release model
 
-- `ci.yml` runs on pull requests: a build job and a GameTest job. Both assert a
-  non-zero result â€” a run that passes vacuously (0 tests) is a failure.
-- `release.yml` runs on every push to the default branch, re-runs the tests, and â€” only
-  when the version was bumped â€” tags and publishes a GitHub release with a cumulative
-  changelog. Alpha/nightly publishing is opt-in via the `ALPHA_RELEASES` repo variable
-  and is **off** by default.
+- `ci.yml` currently enforces the **version-bump guard only**: a beta or stable bump must
+  change the version file and nothing else; an `-alpha` bump may bundle work; a PR labelled
+  `breaking` forces the next clean bump to raise the major or minor version.
+- **Build and GameTest jobs are deferred.** Some dependencies (ManasCore's jar-in-jar
+  sub-modules, plus a few pack mods) are not resolvable from a clean checkout via
+  CurseMaven alone, so compiling in CI would fail every run. They land once a jar-fetch
+  step exists. Until then, run `./gradlew build` and the GameTest task locally before
+  pushing.
+- `release.yml` is **not yet enabled for the gradle mod repos** - it needs a CI-built jar
+  to attach. The datapack repo is the exception: its "build" is a zip, so it has a working
+  `release.yml` that tags and publishes on a version bump.
 - `version-bump.yml` opens an isolated version-bump PR (only the version file changes).
-  Beta/stable bumps must not carry other changes; `-alpha` bumps may bundle work.
 - CurseForge publishing (`curseforge.yml`) is **deferred** until a mod has a CurseForge
   listing and the `CURSEFORGE_PROJECT_ID` / `CURSEFORGE_API_KEY` secrets. Do not add it
   speculatively.
+- Where a release workflow exists, alpha/nightly publishing is opt-in via the
+  `ALPHA_RELEASES` repo variable and is **off** by default.
 
