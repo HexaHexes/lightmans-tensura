@@ -1,4 +1,4 @@
-package dev.kurok.mods.lightmanstensura.mixin.tata;
+package org.bitwisemadness.lightmanstensura.mixin.tata;
 
 import java.util.List;
 import java.util.Set;

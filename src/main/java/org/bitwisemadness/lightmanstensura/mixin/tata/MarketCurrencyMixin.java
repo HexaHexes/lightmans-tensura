@@ -1,6 +1,6 @@
-package dev.kurok.mods.lightmanstensura.mixin.tata;
+package org.bitwisemadness.lightmanstensura.mixin.tata;
 
-import dev.kurok.mods.lightmanstensura.economy.CoinMap;
+import org.bitwisemadness.lightmanstensura.economy.CoinMap;
 import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

@@ -1,4 +1,4 @@
-package dev.kurok.mods.lightmanstensura.gametest;
+package org.bitwisemadness.lightmanstensura.gametest;
 
 import java.util.Optional;
 import net.minecraft.gametest.framework.GameTest;

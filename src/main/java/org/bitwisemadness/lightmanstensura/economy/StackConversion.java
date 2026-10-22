@@ -1,4 +1,4 @@
-package dev.kurok.mods.lightmanstensura.economy;
+package org.bitwisemadness.lightmanstensura.economy;
 
 import io.github.lightman314.lightmanscurrency.common.items.WalletItem;
 import java.util.ArrayList;

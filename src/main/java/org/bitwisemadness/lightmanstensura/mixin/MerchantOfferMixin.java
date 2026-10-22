@@ -1,7 +1,7 @@
-package dev.kurok.mods.lightmanstensura.mixin;
+package org.bitwisemadness.lightmanstensura.mixin;
 
-import dev.kurok.mods.lightmanstensura.economy.CoinMap;
-import dev.kurok.mods.lightmanstensura.economy.StackConversion;
+import org.bitwisemadness.lightmanstensura.economy.CoinMap;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
 import java.util.Optional;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.ItemCost;

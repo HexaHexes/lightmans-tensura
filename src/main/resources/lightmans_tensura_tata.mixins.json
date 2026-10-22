@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.kurok.mods.lightmanstensura.mixin.tata",
+  "package": "org.bitwisemadness.lightmanstensura.mixin.tata",
   "compatibilityLevel": "JAVA_21",
-  "plugin": "dev.kurok.mods.lightmanstensura.mixin.tata.TataMixinPlugin",
+  "plugin": "org.bitwisemadness.lightmanstensura.mixin.tata.TataMixinPlugin",
   "mixins": [
     "MarketCurrencyMixin",
     "ContractCatalogMixin"

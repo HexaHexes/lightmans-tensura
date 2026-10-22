@@ -1,4 +1,4 @@
-package dev.kurok.mods.lightmanstensura.economy;
+package org.bitwisemadness.lightmanstensura.economy;
 
 import java.util.Map;
 import java.util.Set;

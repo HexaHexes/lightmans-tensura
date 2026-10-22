@@ -1,8 +1,8 @@
-package dev.kurok.mods.lightmanstensura.migration;
+package org.bitwisemadness.lightmanstensura.migration;
 
-import dev.kurok.mods.lightmanstensura.LightmansTensura;
-import dev.kurok.mods.lightmanstensura.economy.StackConversion;
-import dev.kurok.mods.lightmanstensura.economy.StackConversion.ConversionResult;
+import org.bitwisemadness.lightmanstensura.LightmansTensura;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;

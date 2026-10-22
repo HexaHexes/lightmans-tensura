@@ -1,8 +1,8 @@
-package dev.kurok.mods.lightmanstensura;
+package org.bitwisemadness.lightmanstensura;
 
 import com.mojang.logging.LogUtils;
-import dev.kurok.mods.lightmanstensura.migration.CoinConvertCommand;
-import dev.kurok.mods.lightmanstensura.migration.MigrationEvents;
+import org.bitwisemadness.lightmanstensura.migration.CoinConvertCommand;
+import org.bitwisemadness.lightmanstensura.migration.MigrationEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;

@@ -1,4 +1,4 @@
-package dev.kurok.mods.lightmanstensura.migration;
+package org.bitwisemadness.lightmanstensura.migration;
 
 import com.mojang.brigadier.Command;
 import net.minecraft.commands.CommandSourceStack;

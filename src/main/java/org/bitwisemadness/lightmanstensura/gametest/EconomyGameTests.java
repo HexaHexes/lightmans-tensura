@@ -1,11 +1,11 @@
-package dev.kurok.mods.lightmanstensura.gametest;
+package org.bitwisemadness.lightmanstensura.gametest;
 
 import com.mojang.authlib.GameProfile;
 import dev.gearevo.gearevolution.GearEvolutionServices;
 import dev.gearevo.gearevolution.chain.ChainEvolutionResolver;
-import dev.kurok.mods.lightmanstensura.economy.StackConversion;
-import dev.kurok.mods.lightmanstensura.economy.StackConversion.ConversionResult;
-import dev.kurok.mods.lightmanstensura.migration.MigrationService;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
+import org.bitwisemadness.lightmanstensura.migration.MigrationService;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;

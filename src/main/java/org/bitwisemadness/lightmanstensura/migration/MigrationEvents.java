@@ -1,6 +1,6 @@
-package dev.kurok.mods.lightmanstensura.migration;
+package org.bitwisemadness.lightmanstensura.migration;
 
-import dev.kurok.mods.lightmanstensura.LightmansTensura;
+import org.bitwisemadness.lightmanstensura.LightmansTensura;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
