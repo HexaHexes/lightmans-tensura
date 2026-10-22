@@ -36,12 +36,40 @@ neoForge {
     }
 }
 
+configurations {
+    // Runtime closure for the gametest run: staged into run/mods below.
+    gametestMods
+}
+
+repositories {
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+    }
+    mavenCentral()
+}
+
 dependencies {
     // Compile-only against the pack's mods (not shipped, not required to build
     // the rest of the project - only WalletItem/WalletData/ModDataComponents
     // need Lightman's Currency at compile time; the gametest suite also links
-    // Gear Evolution's RuntimeGearExistenceCatalog). See libs/ (gitignored).
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    // Gear Evolution's RuntimeGearExistenceCatalog). Coordinates are CurseMaven
+    // so a clean checkout resolves every jar - never gitignored libs/.
+    compileOnly 'curse.maven:lightmans-currency-472521:9048585' // lightmanscurrency-1.21-2.3.0.6
+    compileOnly 'curse.maven:gearevolution-1501711:9122235' // gearevolution-1.3.0
+
+    gametestMods 'curse.maven:architectury-419699:8492726'
+    gametestMods 'curse.maven:cloth-config-348521:5729127'
+    gametestMods 'curse.maven:gearevolution-1501711:9122235'
+    gametestMods 'curse.maven:geckolib-388172:8893490'
+    gametestMods 'curse.maven:lightmans-currency-472521:9048585'
+    // The core jar nests every manascore-* module under META-INF/jars; FML's
+    // nested-jar loader installs them at runtime, so only the core is staged.
+    gametestMods 'curse.maven:manascore-619025:8022425'
+    gametestMods 'curse.maven:smartbrainlib-661293:7055149'
+    gametestMods 'curse.maven:tensura-all-the-adventure-1672789:9140357' // tensura_all_the_adventure-0.0.0.5
+    gametestMods 'curse.maven:tensura-reincarnated-643695:8793360'
+    gametestMods 'curse.maven:terrablender-940057:6054947'
 }
 
 // --- gametest harness -------------------------------------------------------
@@ -49,7 +77,7 @@ dependencies {
 // Stage the pack's dependency mod jars into the run's production-style mods/
 // folder, where FML's mods-folder locator finds them exactly like in the pack.
 tasks.register('prepareGametestMods', Sync) {
-    from 'testmods'
+    from configurations.gametestMods
     into 'run/mods'
 }
 
@@ -86,4 +114,16 @@ tasks.matching { it.name == 'runGametest' }.configureEach {
         }
         logger.lifecycle("GameTest OK: all ${expectedTests} tests passed")
     }
+}
+
+// --- JUnit wiring (junit CI check) -------------------------------------------
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
 }
