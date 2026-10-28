@@ -59,5 +59,10 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 
 - `ci.yml` runs the template's three checks, with the gametest job grading
   `./gradlew runGametest`.
-- No `release.yml` yet: when the template's release workflow lands here it tags
-  and publishes on a version bump.
+- `release.yml` cuts the GitHub release for `v<mod_version>` on a push to
+  `master` (this repo''s default branch), and `publish.yml` publishes the Maven
+  artifact to the org''s GitHub Packages registry when that release is
+  published - pre-releases only when the repo variable `ALPHA_RELEASES` is true.
+- The release workflow''s jar path uses this repo''s hyphenated `archivesName`
+  (`lightmans-tensura`), not the `mod_id` the template derives it from - keep
+  that local edit if the file is ever re-copied from the template.
