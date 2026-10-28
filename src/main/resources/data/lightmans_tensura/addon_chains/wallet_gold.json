@@ -1,7 +1,7 @@
 {
     "item":  "lightmanscurrency:wallet_gold",
-    "epGain":  0.004,
-    "maxEP":  8000,
-    "minEP":  4000,
+    "epGain":  0.003,
+    "maxEP":  5000,
+    "minEP":  3200,
     "evolution":  "lightmanscurrency:wallet_emerald"
-}
+}

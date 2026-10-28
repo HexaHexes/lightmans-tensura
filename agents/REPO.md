@@ -32,7 +32,12 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
   via `neoforge:false` conditions.
 - `/coinconvert` runs at permission level 2 and converts stacks 1:1 by tier.
 - Nine wallet tiers are registered to Gear Evolution via
-  `data/lightmans_tensura/addon_chains/` (minEP ladder 0 → 80000).
+  `data/lightmans_tensura/addon_chains/` at Gear Evolution's canonical material
+  progression values: leather 0 → 550, copper (chainmail's slot) → 1350, iron → 3200,
+  gold → 5000, emerald (wallet-only rung) → 6400, diamond → 7800, netherite → 17500,
+  nether_star (magisteel tail) → 18000, ender_dragon → 52000 terminal. Climb rates
+  are flat 0.003 through netherite (what canonical chestplates use), then 0.01/0.02
+  on the tail. `tensura-tool-belt` mirrors the same ceilings minus emerald.
 - The migration converts currency on chunk/entity load, player login, and via
   `/coinconvert` — keep all four surfaces in sync when touching conversion.
 

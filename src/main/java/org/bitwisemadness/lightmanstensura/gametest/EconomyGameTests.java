@@ -160,30 +160,33 @@ public class EconomyGameTests {
      * Wallet tiers must be registered with Gear Evolution through {@code addon_chains}
      * (GE's mechanism for non-builtin items - its gear_existence directory only ever
      * accepts items with a hardcoded builtin chain). Asserts the tier ladder
-     * (minEP/maxEP), the epGain ramp, every evolution link, and one live step through
-     * GE's resolver.
+     * (minEP/maxEP) at Gear Evolution's canonical material progression values -
+     * leather 550, chainmail 1350, iron 3200, gold 5000, diamond 7800, netherite
+     * 17500, then the magisteel tail 18000/52000 - the climb rates (flat 0.003
+     * through netherite, then the tail's 0.01/0.02), every evolution link, and one
+     * live step through GE's resolver.
      */
     @GameTest(template = "empty")
     public static void walletGearEvolutionChain(GameTestHelper helper) {
         record Tier(String file, String item, int minEp, int maxEp, double epGain, String evolution) {}
         List<Tier> tiers = List.of(
-                new Tier("wallet_leather", "lightmanscurrency:wallet_leather", 0, 1000, 0.001,
+                new Tier("wallet_leather", "lightmanscurrency:wallet_leather", 0, 550, 0.003,
                         "lightmanscurrency:wallet_copper"),
-                new Tier("wallet_copper", "lightmanscurrency:wallet_copper", 1000, 2000, 0.002,
+                new Tier("wallet_copper", "lightmanscurrency:wallet_copper", 550, 1350, 0.003,
                         "lightmanscurrency:wallet_iron"),
-                new Tier("wallet_iron", "lightmanscurrency:wallet_iron", 2000, 4000, 0.003,
+                new Tier("wallet_iron", "lightmanscurrency:wallet_iron", 1350, 3200, 0.003,
                         "lightmanscurrency:wallet_gold"),
-                new Tier("wallet_gold", "lightmanscurrency:wallet_gold", 4000, 8000, 0.004,
+                new Tier("wallet_gold", "lightmanscurrency:wallet_gold", 3200, 5000, 0.003,
                         "lightmanscurrency:wallet_emerald"),
-                new Tier("wallet_emerald", "lightmanscurrency:wallet_emerald", 8000, 16000, 0.005,
+                new Tier("wallet_emerald", "lightmanscurrency:wallet_emerald", 5000, 6400, 0.003,
                         "lightmanscurrency:wallet_diamond"),
-                new Tier("wallet_diamond", "lightmanscurrency:wallet_diamond", 16000, 32000, 0.006,
+                new Tier("wallet_diamond", "lightmanscurrency:wallet_diamond", 6400, 7800, 0.003,
                         "lightmanscurrency:wallet_netherite"),
-                new Tier("wallet_netherite", "lightmanscurrency:wallet_netherite", 32000, 50000, 0.006,
+                new Tier("wallet_netherite", "lightmanscurrency:wallet_netherite", 7800, 17500, 0.003,
                         "lightmanscurrency:wallet_nether_star"),
-                new Tier("wallet_nether_star", "lightmanscurrency:wallet_nether_star", 50000, 80000, 0.006,
+                new Tier("wallet_nether_star", "lightmanscurrency:wallet_nether_star", 17500, 18000, 0.01,
                         "lightmanscurrency:wallet_ender_dragon"),
-                new Tier("wallet_ender_dragon", "lightmanscurrency:wallet_ender_dragon", 80000, 100000, 0.006,
+                new Tier("wallet_ender_dragon", "lightmanscurrency:wallet_ender_dragon", 18000, 52000, 0.02,
                         null));
 
         var chains = GearEvolutionServices.addonChains();
