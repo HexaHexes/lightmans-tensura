@@ -1,7 +1,7 @@
 {
     "item":  "lightmanscurrency:wallet_netherite",
-    "epGain":  0.006,
-    "maxEP":  50000,
-    "minEP":  32000,
+    "epGain":  0.003,
+    "maxEP":  17500,
+    "minEP":  7800,
     "evolution":  "lightmanscurrency:wallet_nether_star"
-}
+}
