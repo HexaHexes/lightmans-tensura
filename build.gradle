@@ -5,7 +5,7 @@ plugins {
 }
 
 version = mod_version
-group = 'org.bitwisemadness'
+group = mod_group_id
 
 base {
     archivesName = 'lightmans-tensura'
@@ -15,14 +15,37 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
 
+// Game tests live in their own source set: they compile against main, and are
+// deliberately NOT part of sourceSets.main - so none of it is packaged into the
+// released jar. Declared before neoForge because the mods block below joins it.
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output + configurations.compileClasspath
+        runtimeClasspath += output + sourceSets.main.output + configurations.runtimeClasspath
+    }
+}
+
 neoForge {
-    version = '21.1.259'
+    version = project.neo_version
 
     // In-repo gametest run. NeoForge's patched net.minecraft.server.Main reads
     // -Dneoforge.gameTestServer and boots a headless GameTestServer in this
     // project's own run/ folder - no CurseForge instance involved.
     runs {
-        gametest {
+        client {
+            client()
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+        }
+
+        // Headless test runner. NeoForge's patched server Main boots a
+        // GameTestServer that runs every registered @GameTest and exits - no
+        // window, no live instance. The namespace gate keeps the run to this
+        // repo's tests only, despite the pack's dependency mods staged below.
+        gameTestServer {
             server()
             gameDirectory = project.layout.projectDirectory.dir('run')
             systemProperty 'neoforge.gameTestServer', 'true'
@@ -31,11 +54,41 @@ neoForge {
     }
 
     mods {
-        lightmans_tensura {
+        "${mod_id}" {
             sourceSet sourceSets.main
+            // The gametest source set joins the mod for the dev runs so
+            // @GameTestHolder is discovered from FML's scan data. It is still
+            // not in the jar - the jar only packages sourceSets.main.
+            sourceSet sourceSets.gametest
         }
     }
 }
+
+// Expand the ${...} placeholders in src/main/templates into the real
+// neoforge.mods.toml at build time, so mod identity is edited in one place
+// (gradle.properties) rather than duplicated in the toml.
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    def replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
+}
+// Feed the generated metadata in as a resource dir; passing the task provider
+// wires the dependency so the toml is generated before resources are processed.
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
 
 configurations {
     // Runtime closure for the gametest run: staged into run/mods below.
@@ -82,7 +135,7 @@ tasks.register('prepareGametestMods', Sync) {
     into 'run/mods'
 }
 
-tasks.matching { it.name == 'runGametest' }.configureEach {
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
     dependsOn 'prepareGametestMods'
 
     // GameTestServer prints "All N required tests passed :)" or "N required
@@ -136,18 +189,18 @@ test {
 // release.yml cuts the GitHub release, publish.yml runs on "release published"
 // and drives this block. Credentials come from the workflow token in CI; a
 // local publish can supply gpr.user / gpr.key in ~/.gradle/gradle.properties.
-// This repo's gradle.properties predates the mod_* property set, so the pom
-// values are literals here.
+// Keep the URL pointing at THIS repository - the rename checklist covers it.
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
             from components.java
-            artifactId = 'lightmans_tensura'
+            artifactId = mod_id
             pom {
-                name = "Lightman's Tensura Economy"
+                name = mod_name
+                description = mod_description
                 licenses {
                     license {
-                        name = 'GNU Lesser General Public License v2.1'
+                        name = mod_license
                     }
                 }
             }

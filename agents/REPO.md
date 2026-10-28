@@ -19,7 +19,9 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
   Adventure (`tensura_all_the_adventure`) — enables its quest/contract/market rewards
   paying Lightman's coins (gated mixins).
 
-**Test:** `./gradlew runGametest` — `EconomyGameTests` (14 tests). `expectedTests = 14`.
+**Test:** `./gradlew runGameTestServer` — `EconomyGameTests` (14 tests) and
+`TataIntegrationGameTests` (2). `expectedTests = 16`. GameTest sources and the
+`empty` structure template live under `src/gametest`, outside the shipped jar.
 
 **Remote:** `github.com/HexaHexes/lightmans-tensura` (public, default branch
 `master`).
@@ -63,7 +65,7 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 ## CI & release model - this repo
 
 - `ci.yml` runs the template's three checks, with the gametest job grading
-  `./gradlew runGametest`.
+  `./gradlew runGameTestServer`.
 - `release.yml` cuts the GitHub release for `v<mod_version>` on a push to
   `master` (this repo''s default branch), and `publish.yml` publishes the Maven
   artifact to the org''s GitHub Packages registry when that release is

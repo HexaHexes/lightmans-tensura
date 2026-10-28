@@ -33,9 +33,9 @@ import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 /**
- * In-repo runtime coverage for the pack conversion. Run with {@code gradle runGametest}:
+ * In-repo runtime coverage for the pack conversion. Run with {@code gradle runGameTestServer}:
  * NeoForge's patched server main boots a headless GameTestServer in this project's
- * {@code run/} folder with the pack's dependency mods staged from {@code testmods/}
+ * {@code run/} folder with the pack's dependency mods staged from the {@code gametestMods} configuration
  * into {@code run/mods/} - no CurseForge instance is involved.
  *
  * <p>The suite proves the datapack override order (tags, disabled recipes,
