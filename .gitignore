@@ -1,7 +1,7 @@
 build/
 .gradle/
 out/
-libs/
-*.iml
 run/
-testmods/
+*.iml
+.idea/
+repo/

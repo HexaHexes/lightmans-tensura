@@ -9,7 +9,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 /**
  * Runtime coverage for the optional Tensura: All The Adventure (TATA) mixins.
- * TATA is staged from {@code testmods/} like the rest of the pack's dependency
+ * TATA is staged from the {@code gametestMods} configuration like the rest of the pack's dependency
  * mods; everything below reaches it through reflection so this project keeps
  * zero compile dependency on it - mirroring the string-targeted mixin design.
  *
