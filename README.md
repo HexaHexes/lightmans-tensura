@@ -1,36 +1,28 @@
 # Lightman's Tensura Economy
 
 Swaps Tensura's coins and pouches for **Lightman's Currency** coins and wallets, so the
-whole economy runs on one currency system. Everything is handled for you — if you already
-have Tensura coins or pouches in a world, they convert to the new currency automatically.
+whole economy runs on one currency system. If a world already has Tensura coins or
+pouches in it, they convert to the new currency automatically.
 
 ## What it does
 
-- **One currency.** Tensura's coins become Lightman's Currency coins, and Tensura's
-  pouches become Lightman's wallets — the same five tiers, one-for-one:
+- Nothing to set up. Coins and wallets drop, trade and craft wherever Tensura's
+  currency already did.
+- One currency. Tensura's coins become Lightman's Currency coins, and Tensura's
+  pouches become Lightman's wallets. The five tiers map one-for-one:
   d → leather, c → copper, b → iron, a → gold, special_a → netherite.
-- **Your existing money carries over.** Coins convert as you play: when chunks and
-  entities load, when you log in (inventory, armor, offhand, ender chest), and on demand
-  with `/coinconvert`. Pouch contents move straight into the matching wallet.
-- **Villager trades pay the new currency.** Villager offers are converted too, so
-  trading works exactly as before — just with the new coins.
-- **Wallets progress as you grow.** With **Gear Evolution** installed, wallets slot
-  into its upgrade ladder, so a better wallet is a real tier you work up to (leather
-  through netherite, ending at the ender-dragon wallet). Without it, wallets still
-  work — they just don't evolve.
-- **Quest and market rewards pay Lightman's coins** when Tensura: All The Adventure is
-  installed.
-
-## Getting it in-game
-
-Nothing to do — coins and wallets drop, trade and craft wherever Tensura's currency
-already did. To convert old money at any time, run:
-
-```
-/coinconvert
-```
-
-(needs operator / permission level 2).
+- Existing money carries over. Coins convert as you play: when chunks and
+  entities load, when you log in (inventory, armor, offhand, ender chest), and on
+  demand with `/coinconvert` (operator, permission level 2). Pouch contents move
+  straight into the matching wallet.
+- Villager trades pay the new currency. Villager offers are converted too, so
+  trading works exactly as before, with the new coins.
+- With **Gear Evolution** installed, wallets slot into its upgrade ladder, so a
+  better wallet is a real tier you work up to (leather through netherite, ending
+  at the ender-dragon wallet). Without it, wallets still work; they just don't
+  evolve.
+- Quest and market rewards pay Lightman's coins when Tensura: All The Adventure
+  is installed.
 
 ## Dependencies
 
