@@ -1,7 +1,7 @@
 package org.bitwisemadness.lightmanstensura.mixin.tata;
 
-import org.bitwisemadness.lightmanstensura.economy.CoinMap;
 import net.minecraft.resources.ResourceLocation;
+import org.bitwisemadness.lightmanstensura.economy.CoinMap;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

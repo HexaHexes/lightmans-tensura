@@ -1,6 +1,5 @@
 package org.bitwisemadness.lightmanstensura.migration;
 
-import org.bitwisemadness.lightmanstensura.LightmansTensura;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +17,7 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.ChunkEvent;
+import org.bitwisemadness.lightmanstensura.LightmansTensura;
 
 /**
  * Migration triggers. Every retired coin/pouch entering the world through chunk
