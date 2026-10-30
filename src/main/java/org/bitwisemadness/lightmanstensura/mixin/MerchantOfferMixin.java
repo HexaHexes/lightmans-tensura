@@ -1,11 +1,11 @@
 package org.bitwisemadness.lightmanstensura.mixin;
 
-import org.bitwisemadness.lightmanstensura.economy.CoinMap;
-import org.bitwisemadness.lightmanstensura.economy.StackConversion;
 import java.util.Optional;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import org.bitwisemadness.lightmanstensura.economy.CoinMap;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;

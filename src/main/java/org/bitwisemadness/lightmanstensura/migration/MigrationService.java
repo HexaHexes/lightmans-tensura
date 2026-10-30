@@ -1,8 +1,5 @@
 package org.bitwisemadness.lightmanstensura.migration;
 
-import org.bitwisemadness.lightmanstensura.LightmansTensura;
-import org.bitwisemadness.lightmanstensura.economy.StackConversion;
-import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -15,6 +12,9 @@ import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import org.bitwisemadness.lightmanstensura.LightmansTensura;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
 
 /**
  * Full cleanup of retired coins/pouches:

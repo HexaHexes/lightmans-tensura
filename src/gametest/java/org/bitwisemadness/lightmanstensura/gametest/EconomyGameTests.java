@@ -3,9 +3,6 @@ package org.bitwisemadness.lightmanstensura.gametest;
 import com.mojang.authlib.GameProfile;
 import dev.gearevo.gearevolution.GearEvolutionServices;
 import dev.gearevo.gearevolution.chain.ChainEvolutionResolver;
-import org.bitwisemadness.lightmanstensura.economy.StackConversion;
-import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
-import org.bitwisemadness.lightmanstensura.migration.MigrationService;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -31,6 +28,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion;
+import org.bitwisemadness.lightmanstensura.economy.StackConversion.ConversionResult;
+import org.bitwisemadness.lightmanstensura.migration.MigrationService;
 
 /**
  * In-repo runtime coverage for the pack conversion. Run with {@code gradle runGameTestServer}:

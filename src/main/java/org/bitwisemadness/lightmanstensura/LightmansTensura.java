@@ -1,11 +1,11 @@
 package org.bitwisemadness.lightmanstensura;
 
 import com.mojang.logging.LogUtils;
-import org.bitwisemadness.lightmanstensura.migration.CoinConvertCommand;
-import org.bitwisemadness.lightmanstensura.migration.MigrationEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
+import org.bitwisemadness.lightmanstensura.migration.CoinConvertCommand;
+import org.bitwisemadness.lightmanstensura.migration.MigrationEvents;
 import org.slf4j.Logger;
 
 /**
