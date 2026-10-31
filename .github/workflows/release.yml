@@ -99,13 +99,9 @@ jobs:
             exit 1
           fi
 
-          # Player-facing notes: what the mod adds and how to install it. Rewrite for
-          # your mod when promoting this file - the README rule about player-facing
-          # text applies here too.
-          NOTES="Lightman''s Tensura Economy, version $VERSION.
-          Replaces Tensura''s coins and pouches with Lightman''s Currency coins and
-          wallets; wallets progress through Gear Evolution. Requires Lightman''s
-          Currency and Tensura: Reincarnated - see the README."
+          # Release bodies are GitHub-native auto-generated changelogs
+          # (.github/release.yml configures the categories): the notes list the
+          # merged PRs since the previous release. No per-repo promo body.
 
           PRERELEASE=""
           case "$VERSION" in
@@ -114,7 +110,7 @@ jobs:
 
           gh release create "v$VERSION" "$JAR" \
             --title "v$VERSION" \
-            --notes "$NOTES" \
+            --generate-notes \
             $PRERELEASE
       # GitHub refuses to cascade workflow runs started by the default
       # GITHUB_TOKEN, so the "release: published" trigger only ever fires for
