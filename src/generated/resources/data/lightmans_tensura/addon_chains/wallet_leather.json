@@ -1,0 +1,7 @@
+{
+  "epGain": 0.003,
+  "evolution": "lightmanscurrency:wallet_copper",
+  "item": "lightmanscurrency:wallet_leather",
+  "maxEP": 550,
+  "minEP": 0
+}

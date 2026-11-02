@@ -54,6 +54,17 @@ neoForge {
             systemProperty 'neoforge.gameTestServer', 'true'
             systemProperty 'neoforge.enabledGameTestNamespaces', 'lightmans_tensura'
         }
+
+        // Regenerates src/generated/resources - the economy datapack (wallet
+        // chains, pouch retirement, loot/advancement/tag overrides) that ships
+        // inside the jar. The required Tensura/ManasCore/Lightman's stack is
+        // staged first - the mod declares them required, so FML aborts without.
+        data {
+            data()
+            programArguments.addAll '--mod', mod_id, '--all',
+                    '--output', file('src/generated/resources').absolutePath,
+                    '--existing', file('src/main/resources').absolutePath
+        }
     }
 
     mods {
@@ -92,6 +103,11 @@ def generateModMetadata = tasks.register('generateModMetadata', ProcessResources
 // wires the dependency so the toml is generated before resources are processed.
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
+
+// The generated datapack is committed and packaged as part of the mod's
+// resources: datagen owns data/**, the hand-authored originals are gone
+// (issue #22), and the drift gate keeps this tree fresh.
+sourceSets.main.resources.srcDir 'src/generated/resources'
 
 configurations {
     // Runtime closure for the gametest run: staged into run/mods below.
@@ -138,9 +154,16 @@ tasks.register('prepareGametestMods', Sync) {
     into 'run/mods'
 }
 
-tasks.matching { it.name == 'runGameTestServer' }.configureEach {
+// Both the GameTest run and the data run boot FML against the run/ directory,
+// so both need the required Tensura/ManasCore/Lightman's stack staged first -
+// the mod declares them required, so FML aborts the data run without them.
+tasks.matching { it.name == 'runGameTestServer' || it.name == 'runData' }.configureEach {
     dependsOn 'prepareGametestMods'
+}
 
+// Grade the GameTest run on the log summary, not the exit code; this must NOT
+// attach to runData, which shares no log contract with the GameTest server.
+tasks.matching { it.name == 'runGameTestServer' }.configureEach {
     // GameTestServer prints "All N required tests passed :)" or "N required
     // tests failed :(" when the run finishes; grade that so the Gradle build
     // is green/red on its own (crashes fail via the java exit code anyway).

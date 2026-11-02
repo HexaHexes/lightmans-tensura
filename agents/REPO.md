@@ -73,3 +73,7 @@ a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
 - The release workflow''s jar path uses this repo''s hyphenated `archivesName`
   (`lightmans-tensura`), not the `mod_id` the template derives it from - keep
   that local edit if the file is ever re-copied from the template.
+- `ci.yml`''s jar assertion resolves the jar with a name-agnostic
+  `build/libs/*.jar` glob for the same reason - the template''s
+  `"$MOD_ID"-*.jar` glob never matches this repo''s hyphenated jar name. Keep
+  that local edit too.

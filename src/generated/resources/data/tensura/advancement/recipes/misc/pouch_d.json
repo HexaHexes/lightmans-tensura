@@ -1,14 +1,16 @@
 {
   "neoforge:conditions": [
-    { "type": "neoforge:false" }
+    {
+      "type": "neoforge:false"
+    }
   ],
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_monster_leather_b": {
+    "has_monster_leather_d": {
       "conditions": {
         "items": [
           {
-            "items": "tensura:monster_leather_b"
+            "items": "tensura:monster_leather_d"
           }
         ]
       },
@@ -26,7 +28,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tensura:pouch_b"
+        "recipe": "tensura:pouch_d"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -35,12 +37,12 @@
     [
       "has_the_recipe",
       "has_string",
-      "has_monster_leather_b"
+      "has_monster_leather_d"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tensura:pouch_b"
+      "tensura:pouch_d"
     ]
   }
 }
