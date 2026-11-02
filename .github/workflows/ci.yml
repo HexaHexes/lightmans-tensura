@@ -124,8 +124,10 @@ jobs:
             exit 0
           fi
 
-          MOD_ID=$(grep '^mod_id=' gradle.properties | cut -d= -f2 | tr -d '[:space:]')
-          JAR=$(ls build/libs/"$MOD_ID"-*.jar | head -1)
+          # This repo keeps the hyphenated archivesName (`lightmans-tensura`,
+          # see REPO.md "Naming - this repo") - the jar does not follow mod_id
+          # like the template derives it, so the glob is name-agnostic.
+          JAR=$(ls build/libs/*.jar | head -1)
           echo "jar: $JAR"
 
           # Subset, not count equality: a repo may also hand-author data/**
