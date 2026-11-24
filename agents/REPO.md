@@ -5,8 +5,8 @@ maintained in `neoforge-mod-template` and pulled in verbatim - **never hand-edit
 Everything in this file is this repo's own and is edited freely; keep it aligned
 with the org rules rather than restating them.
 
-**Repo:** `HexaHexes/lightmans-tensura` · **Mod ID:** `lightmans_tensura` · **Branch:** `master`
-**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 · **Jar:** `build/libs/lightmans-tensura-<version>.jar`
+**Repo:** `HexaHexes/lightmans-tensura` · **Mod ID:** `lightmans_tensura` · **Branch:** `neoforge-1.21.1` (the loader line; this is the default branch - no `main`)
+**Platform:** Minecraft 1.21.1 / NeoForge 21.1.259 / JDK 21 · **Jar:** `build/libs/lightmans_tensura-neoforge-1.21.1-<version>.jar`
 
 Replaces Tensura's coins/pouches with Lightman's Currency coins/wallets as one mod +
 a bundled datapack. Wallets progress through Gear Evolution's `addon_chains/`.
